@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Povrsina kvadrata</h1>
+    <form id="form1">
+     <input type="text" name="TextA" id="TextA" placeholder="Unesi a"><br><br>
+     <input type="text" name="TextB" id="TextB" placeholder="Unesi b"><br><br>
+     <input type="text" name="TextC" id="TextC" placeholder="Unesi c"><br><br>
+
+     <input type="button" value="Izracunaj povrsinu" onclick="IzracunajPovrsinu()"<br>
+    </form>
+    <br>
+    Povrsina kvadrata je:
+    <span id="span1"></span>
+
+    <script>
+    function IzracunajPovrsinu() {
+        var form1 = document.getElementById("form1");
+        var span1 = document.getElementById("span1");
+        
+        a = form1.TextA.value;
+        b = form1.TextB.value;
+        c = form1.TextC.value;
+         
+        var Povrsina = "";
+
+        if (a < 0 || b<0 || c<0) {
+            span1.innerHTML = "a, b, c moraju biti veci od nule";
+            return;
+        }
+       else if(a>=0 && b>=0 && c>=0){
+         var Povrsina = 2*(a*b + a*c + b*c);
+         if (a=="" || b=="" || c=="") {
+              alert("Morate unijeti brojeve");
+         } else {
+             span1.innerHTML = Povrsina;
+         }
+       }
+       
+    }
+    document.body.onload = IzracunajPovrsinu;
+    </script>
+</body>
+</html>
